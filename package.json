@@ -1,0 +1,22 @@
+{
+  "name": "com.diogenesjunior.pesuas",
+  "version": "1.0.0",
+  "description": "Prontuário eletronico do Sistema Único de Assistência Social de Benjamin Constant-AM",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogenesjup/pesuas.git"
+  },
+  "keywords": [
+    "pefisa pix"
+  ],
+  "author": "Fabrica de Plugins e Diogenes Junior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diogenesjup/pesuas/issues"
+  },
+  "homepage": "https://github.com/diogenesjup/pesuas#readme"
+}

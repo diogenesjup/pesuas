@@ -1,0 +1,575 @@
+
+
+.body{
+    background: #f1ebdf !important;
+}
+body.auth{
+    background: #fff;
+}
+.header-fixed{
+    top: 30px;
+}
+
+.brand-logo{
+    text-align: center;
+    padding: 30px;
+}
+
+.brand-logo img{
+    max-width: 100%;
+    width: 120px;
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:visited{
+    background-color: #00940a;
+    border-color: #00940a;
+    font-size: 24px !important;
+    font-weight: bold;
+    letter-spacing: normal;
+    padding-top: 8px !important;
+    padding-bottom: 10px !important;
+
+    /* text-transform: uppercase; */
+    
+}
+
+.menu-box-modal{
+    pointer-events: pointer !important; 
+}
+
+.page-title.page-title-fixed h1 img{
+    width: 69px;
+}
+
+.header.header-auto-show.header-fixed.header-logo-center.header-active img{
+    width: 55px;
+}
+
+.menu{
+    background: #fff;
+}
+
+.search-box input{
+    background-color: #F9F9F9;
+}
+
+
+
+
+.stories-home{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  
+  .stories-home .foto-categoria-stories{
+      position: relative;
+      display: block;
+      width: 75px;
+      height: 75px;
+      background: #f2f2f2;
+      border-radius: 100%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .stories-home .foto-categoria-stories a,
+  .stories-home .foto-categoria-stories a:hover{
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+  }
+  
+  
+  .nome-categoria-stories{
+    text-align: center;
+  }
+  
+  .nome-categoria-stories a,
+  .nome-categoria-stories a:hover{
+      color: #000;
+      font-size: 12px;
+  }
+
+
+  h3#enviandoPara{
+    margin-top: -14px;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: -20px;
+  }
+
+  h3#enviandoPara small{
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+  }
+
+  .resumo-letra-contato{
+    position: relative;
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: #d67e1d;
+    color: #fff;
+    text-align: center;
+    border-radius: 100%;
+    font-weight: normal;
+    padding-top: 9px;
+    font-size: 12px;
+    margin-right: 13px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+
+  #listaContatosPesquisa .resumo-letra-contato{
+    display: none !important;
+  }
+
+
+  .header img {
+    max-width: 70px !important;
+}
+
+
+.caixa-saldo{
+    position: relative;
+    display: block;
+    color: #35cb56;
+    padding: 13px;
+    height: 100px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.caixa-saldo h2{
+    color: #d67e1d;
+}
+
+.caixa-saldo h2 small{
+    display: block;
+    color: #666;
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: -1px;
+}
+
+.caixa-saldo.caixa-saldo-futuros{
+    background: #f0f0f0;
+    opacity: 0.55;
+}
+
+.caixa-saldo.caixa-saldo-futuros h2{    
+    color: #666;
+}
+
+.caixa-saldo.caixa-saldo-futuros h2 small{
+    color: #747474;
+}
+
+#footer-bar a {
+    color: #fff;
+    padding-top: 12px;
+    position: relative;
+    flex: 1 1 auto;
+    background: #000;
+}
+
+
+.copiar-codigo,
+.copiar-codigo>hover{
+    text-decoration: underline !important;
+    color: #d67e1d !important;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.content h1{
+ 
+    
+    color: #000 !important;
+}
+
+
+.actions-dashboard{
+    padding-bottom: 20px;
+    margin-top: -13px;
+}
+
+.actions-dashboard .diogenes-col-6{
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.actions-dashboard .btn-primary,
+.actions-dashboard .btn-primary:hover,
+.actions-dashboard .btn-primary:active,
+.actions-dashboard .btn-primary:focus,
+.actions-dashboard .btn-primary:visited{
+   
+    display: block;
+    background: #d67e1d;
+    border-color: #d67e1d !important;
+    
+}
+
+
+.actions-dashboard .btn-default,
+.actions-dashboard .btn-default:hover,
+.actions-dashboard .btn-default:active,
+.actions-dashboard .btn-default:focus,
+.actions-dashboard .btn-default:visited{
+   
+    display: block;
+    background: #f1ebdf;
+    border-color: #f1ebdf !important;
+ 
+    color: #000;
+    height: 44px;
+    padding-top: 8px !important;
+    padding-bottom: 10px !important;
+}
+
+
+.carregando-contatos{
+    padding-top: 55px;
+}
+
+
+.actions-dashboard .btn-primary,
+.actions-dashboard .btn-default{
+    border-radius: 12px !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 14px !important;
+    letter-spacing: normal;
+}
+
+
+#produtosTitle{
+
+}
+
+#produtosTitle a,
+#produtosTitle a:hover{
+    text-decoration: none !important;
+    display: none;
+}
+
+#produtosTitle img{
+    width: 26px !important;
+    border-radius: 1000px !important;
+    position: relative;
+    margin-top: -3px;
+    opacity: 0.5;
+    
+}
+
+
+.actions-relatorios{
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.actions-relatorios select,
+.actions-relatorios select:hover,
+.actions-relatorios select:active,
+.actions-relatorios select:focus,
+.actions-relatorios select:visited{
+    width: 100px;
+    padding-left: 8px !important;
+    font-size: 14px !important;
+    border: 1px solid #ccc !important;
+    float: right;
+    margin-top: -32px;
+}
+
+
+.relatorios-grafico{
+    background: #f1ebdf;
+    border-radius: 12px;
+}
+
+
+.loop-saques{
+    padding-top: 25px;
+    position: relative;
+    display: block;
+}
+
+.loop-saques h2{
+    text-align: center;
+    color: #747474;
+    letter-spacing: 3px;
+   
+    
+    font-size: 15px;
+    margin-bottom: 27px;
+}
+
+.caixa-solicitacao-saque{
+    position: relative;
+    background: #f1ebdf;
+
+    position: relative;
+    background: #f1ebdf;
+    border-radius: 12px;
+    padding: 18px;
+
+    margin-bottom: 20px;
+}
+
+.caixa-solicitacao-saque h3{
+    font-size: 18px;
+}
+
+.caixa-solicitacao-saque p{
+    color: #000;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.caixa-solicitacao-saque .diogenes-col-5{
+    font-weight: bold;
+    color: #000;
+    padding-top: 24px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.caixa-solicitacao-saque .diogenes-col-5 img{
+    width: 22px;
+    margin-top: -3px;
+    margin-left: 3px;
+    opacity: 0.65;
+    background: #ffcc4a;
+    border-radius: 100%;
+}
+
+
+img.novo-icone-principal{
+    width: 42px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+    position: relative;
+    z-index: 199;
+    filter: invert(1);
+    margin-bottom: 28px;
+}
+
+.search-results .list-custom-large img {
+    width: 100% !important;
+    height: auto !important;
+    margin-right: 10px;
+}
+
+.search-results .list-custom-large a {
+    line-height: normal !important;
+    color: #1f1f1f;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+}
+
+.header-clear-medium{
+    padding-top: 0 !important;
+}
+
+.superform-formulario{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 900px;
+	border-radius: 12px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	overflow: hidden;
+}
+
+.superform-formulario.fixado {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+	border-radius: 0px !important;
+    margin: 0;
+}
+
+.superform-formulario .section{
+	background: #fff;
+	color: #000;
+	text-align: left;
+	border-radius: 12px;
+	padding: 35px;
+	opacity: 0;
+}
+
+.superform-formulario.fixado .section{
+	border-radius: 0px !important;
+}
+
+.superform-formulario .section .conteudo{
+	position: relative;
+  display: block;
+}
+
+.superform-formulario.fixado .section .conteudo{
+   position: relative;
+   display: block;
+   width: 560px;
+   margin-left: auto;
+   margin-right: auto;
+}
+@media(max-width:690px){
+	.superform-formulario.fixado .section .conteudo{
+		overflow-y: scroll;
+	}
+}
+
+.superform-formulario .section .conteudo .feedback-formulario{
+	position: relative;
+	display: block;
+}
+
+.superform-formulario .section .conteudo img{
+	max-width: 100%;
+	height: auto;
+}
+
+.superform-formulario .section.section-inicial{
+	opacity: 1;
+}
+
+.superform-formulario .section h1,
+.superform-formulario .section h2,
+.superform-formulario .section h3,
+.superform-formulario .section h4,
+.superform-formulario .section h5{
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+
+.superform-formulario .section h1{
+	font-size: 32px;
+	line-height: 35px;
+}
+
+.superform-formulario .section h2,
+.superform-formulario .section h3{
+	font-size: 24px;
+    line-height: 26px;
+}
+
+.superform-formulario .section p{
+	margin-bottom: 25px;
+}
+
+.superform-formulario .actions{
+	 margin-top: 25px;
+}
+
+.superform-formulario .actions a,
+.superform-formulario .actions a:hover{
+	text-decoration: none !important;
+	font-weight: bold !important;
+}
+
+.superform-formulario .diogenes-form-group{
+	margin-bottom: 0;
+	
+	margin-top:12px;
+}
+
+.superform-formulario .diogenes-form-group label{
+	font-weight: bold;
+}
+
+.superform-formulario .diogenes-form-group .diogenes-form-control{
+  min-height: 54px;
+}
+
+.superform-formulario .diogenes-form-group textarea.diogenes-form-control{
+	height: auto !important;
+}
+
+
+.superform-formulario ul{
+	margin-left: 0;
+	padding-left: 0;
+}
+.superform-formulario li{
+	list-style: none !important;
+}
+.bg-purple-600{
+    background-color: #d67e1d !important;
+}
+
+.superform-formulario ul li input[type="radio"]:checked + label {
+    background: #f9f9f9 !important;
+    border: 1px solid #d67e1d;
+    color: #d67e1d !important;
+    font-weight: bold;
+}
+
+.superform-formulario .actions {
+    margin-top: 25px;
+    text-align: center;
+}
+
+
+.superform-formulario .p-5 {
+    padding: 1rem !important;
+}
+
+.superform-formulario .pp-tableCell{
+	vertical-align: top !important;
+}
+
+.superform-formulario .helper-radio-text{
+	padding-top: 8px;
+}
+
+@media(max-width:540px){
+	.superform-formulario .section .conteudo {
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+}
+
+
+.section.sections-paginas.pp-section.pp-table.active{
+    opacity: 1 !important;
+}
+
+
+.carregando-pre{
+    padding-top: 50px;
+}
+
+.carregando-pre img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 32px;
+  height: auto;
+  margin-bottom: 20px;
+}
