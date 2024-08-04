@@ -24,8 +24,8 @@ function montarListaDeFormularios(){
     var html = `
             <div class="content mb-2">
               <div class="list-group list-custom-small">
-                  <div class="brand-logo" style="text-align: center;padding: 30px;padding-left: 0;">
-                      <img src="images/logo-oficial.jpeg" alt="Pesuas" style="width: 90px !important;margin-bottom: -25px !important;height: auto !important;margin-top: -45px;margin-left: 0;">
+                  <div class="brand-logo" style="text-align: center;padding: 30px;">
+                      <img src="images/logo-oficial.jpeg" alt="Pesuas" style="width: 90px !important;margin-bottom: -25px !important;height: auto !important;margin-top: -45px;margin-left: 0;margin-right:0">
                   </div>
               
     
