@@ -486,13 +486,20 @@ function iniciarPagePiling() {
 function proximaEtapaFormulario() {
   
   let form = jQuery(`#paginaFormulario${posicaoAtualFormulario} form`)[0];
-  if (form.checkValidity() || 9 == 9) {
-      let formData = jQuery(form).serialize();
-      tudoCerto(formData);
-  } else {
-      algoErrado();
-      form.reportValidity();
+  if(!form){
+    tudoCerto();
+  }else{
+
+    if (form.checkValidity()) {
+        let formData = jQuery(form).serialize();
+        tudoCerto(formData);
+    } else {
+        algoErrado();
+        form.reportValidity();
+    }
+
   }
+  
       
 }
 
