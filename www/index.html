@@ -84,7 +84,7 @@ ysyss
     <div class="page-content header-clear-medium" id="conteudoPrincipal">
 
         <div class="brand-logo">
-            <img src="assets/images/icones/1024.png" alt="Pesuas" style="width: 130px !important;">
+            <img src="images/logo-oficial.jpeg" alt="Pesuas" style="width: 230px !important;margin-bottom: -25px !important;">
         </div>
 
         <div class="card card-style">
@@ -97,11 +97,13 @@ ysyss
                     style="display: block;width:100%"
                     onclick="app.buscarDados()"
                 >
-                    Entrar
+                    Começar
                 </button>
 
                 
-
+                <p id="feedbackSincDados">
+                    <img src="images/loading.gif" /> Estamos sincronizando dados pendentes caso você tenha respondido formulários enquanto estava offline.  
+                </p>
                 
 
                 <a href="#" id="msgErroLoginSenha" data-menu="msgErroLoginSenhaMD"></a>
@@ -270,12 +272,20 @@ ysyss
     <script>
 
         setTimeout(function(){
+
             if(localStorage.getItem("cadastroOk")=="2"){
                 
                 localStorage.setItem("cadastroOk", null);
                 document.getElementById('msgCadastroOk').click();
 
             }
+
+            // Chame essa função na inicialização do aplicativo
+          
+                enviarDadosPendentes();
+         
+
+
         }, 2000);
 
     </script>

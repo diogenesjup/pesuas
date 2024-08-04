@@ -10,6 +10,8 @@ class Models{
     
     buscarDados(){
 
+        if (navigator.onLine) {
+
                         // CONFIGURAÇÕES AJAX VANILLA
                         let xhr = new XMLHttpRequest();
                                                             
@@ -34,7 +36,11 @@ class Models{
 
                                 var dados = JSON.parse(xhr.responseText);
 
-                                montarFormulario(dados);
+                                // SALVAR DADOS NA PERSISTÊNCIA DA MEMÓRIA DO APP
+                                localStorage.setItem("dadosAPI",JSON.stringify(dados));
+
+                                montarListaDeFormularios();
+                                //montarFormulario(dados);
                                 
                             }else{
                             
@@ -50,6 +56,21 @@ class Models{
 
                     /* EXECUTA */
                     xhr.send(params);
+
+                } else {
+
+                    // Caso esteja offline
+                    console.log("Sem conexão com a Internet.");
+                    var dados = JSON.parse(localStorage.getItem("dadosAPI"));
+                    if (dados) {
+                        // Se existirem dados no localStorage, prosseguir com o fluxo offline
+                        montarListaDeFormularios();
+                    } else {
+                        // Se não houver dados salvos, chamar a função semInternet
+                        semInternet();
+                    }
+                    
+                }
 
     }
 

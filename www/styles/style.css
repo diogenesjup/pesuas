@@ -7317,3 +7317,17 @@ input[type=number] {
   transform: translate(-50%, -40px) !important;
 }
 
+
+
+#feedbackSincDados img{
+    width: 16px;
+    margin: 10px;
+    margin-bottom: 0;
+    margin-left: 0px;
+    vertical-align: baseline;
+}
+
+#feedbackSincDados{
+  padding-top: 30px;
+  font-size: 13px;
+}

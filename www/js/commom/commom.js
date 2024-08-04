@@ -5,70 +5,133 @@ function abrirUrlBrowser(url){
 
 }
 
+function semInternet(){
+
+}
+
+
+
 
 var posicaoAtualFormulario = 1;
 var superFormHomeUrl = "https://pesuas.com";
 
+function montarListaDeFormularios(){
 
-function montarFormulario(dados) {
+    var dados = JSON.parse(localStorage.getItem("dadosAPI"));
+
+    let conteudoPrincipal = document.getElementById('conteudoPrincipal');
+
+    var html = `
+            <div class="content mb-2">
+              <div class="list-group list-custom-small">
+                  <div class="brand-logo" style="text-align: center;padding: 30px;padding-left: 0;">
+                      <img src="images/logo-oficial.jpeg" alt="Pesuas" style="width: 90px !important;margin-bottom: -25px !important;height: auto !important;margin-top: -45px;margin-left: 0;">
+                  </div>
+              
+    
+    `;
+
+    dados.forEach((formulario, index) => {
+
+      html += `
+      
+              <a href="#" onclick="montarFormulario(${formulario.ID})" title="Clique para abrir o formulário">
+                        <span>${formulario.title}</span>
+                        <i class="fa fa-angle-right"></i>
+              </a> 
+      
+      `;
+
+    });
+
+    
+    html +=  `</div></div>`;
+
+    conteudoPrincipal.innerHTML = html;
+
+}
+
+// MONTAR O FORMULÁRIO A PARTIR DO ID
+function montarFormulario(idFormulario) {
+
+  var dados = JSON.parse(localStorage.getItem("dadosAPI"));
+
   let conteudoPrincipal = document.getElementById('conteudoPrincipal');
   let html = '<section class="superform-formulario"><div id="pagepiling">';
   dados.forEach((formulario, index) => {
-      html += `
-          <div class="section sections-paginas section-inicial" id="paginaFormulario${index + 1}">
-              <div class="conteudo">
-                  <form method="post" action="javascript:void(0)">
-                    ${formulario.conteudo_boas_vindas}
-                  </form>
-                  <div class="actions">
-                      <a href="" onclick="proximaEtapaFormulario()" class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="${formulario.texto_botao_de_start}">
-                          ${formulario.texto_botao_de_start}
-                      </a>
-                  </div>
-              </div>
-          </div>
-          
-      `;
 
-      formulario.paginas.forEach((pagina, paginaIndex) => {
-          html += `
-              <div class="section sections-paginas" id="paginaFormulario${index + paginaIndex + 2}">
-                  <div class="conteudo">
-                      ${pagina.conteudo_abertura}
-                      <form method="post" action="javascript:void(0)">
-          `;
-          pagina.perguntas.forEach((pergunta, perguntaIndex) => {
-              html += renderizarPergunta(pergunta, index + paginaIndex + 2, perguntaIndex);
-          });
-          html += `
-                      </form>
-                      <div class="feedback-formulario"></div>
-                      <div class="actions">
-                          <a href="" onclick="proximaEtapaFormulario()" class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Próximo">
-                              Próximo
-                          </a>
+      if(formulario.ID==idFormulario){
+             
+             // SALVAR OS DADOS ÚNICOS
+             gerarIdentificadorUnico();
+             localStorage.setItem("idFormularioAtivo",idFormulario);
+
+              html += `
+                  <div class="section sections-paginas section-inicial" id="paginaFormulario${index + 1}">
+                      <div class="conteudo">
+                          
+                          <form method="post" action="javascript:void(0)">
+                            ${formulario.conteudo_boas_vindas}
+                          </form>
+                          
+                          <div class="actions">
+                              <a href="" onclick="proximaEtapaFormulario()" class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="${formulario.texto_botao_de_start}">
+                                  ${formulario.texto_botao_de_start}
+                              </a>
+                          </div>
+                          
+                          <p style="text-align:center;padding-top:30px;text-decoration:underline;font-size:13px;opacity:0.70" onclick="location.href='index.html'">
+                              Voltar ao início
+                          </p>
+
                       </div>
                   </div>
-              </div>
-          `;
-      });
+                  
+              `;
 
-      html += `
-          <div class="section sections-paginas section-encerramento" id="paginaFormularioEncerramento${index}">
-              <div class="conteudo">
-                  <form method="post" action="javascript:void(0)">
-                  ${formulario.conteudo_conclusao}
-                  </form>
-                 
-                      <div class="actions">
-                          <a href="" onclick="location.reload()"; class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Voltar">
-                              Voltar
-                          </a>
+              formulario.paginas.forEach((pagina, paginaIndex) => {
+                  html += `
+                      <div class="section sections-paginas" id="paginaFormulario${index + paginaIndex + 2}">
+                          <div class="conteudo">
+                              ${pagina.conteudo_abertura}
+                              <form method="post" action="javascript:void(0)">
+                  `;
+                  pagina.perguntas.forEach((pergunta, perguntaIndex) => {
+                      html += renderizarPergunta(pergunta, index + paginaIndex + 2, perguntaIndex);
+                  });
+                  html += `
+                              </form>
+                              <div class="feedback-formulario"></div>
+                              <div class="actions">
+                                  <a href="" onclick="proximaEtapaFormulario()" class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Próximo">
+                                      Próximo
+                                  </a>
+                              </div>
+                          </div>
                       </div>
-                   ${formulario.url_call_to_action_na_conclusao ? `` : ''}
-              </div>
-          </div>
-      `;
+                  `;
+              });
+
+              html += `
+                  <div class="section sections-paginas section-encerramento" id="paginaFormularioEncerramento${index}">
+                      <div class="conteudo">
+                          <form method="post" action="javascript:void(0)">
+                          ${formulario.conteudo_conclusao}
+                          </form>
+                        
+                              <div class="actions">
+                                  <a href="" onclick="location.reload()"; class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Voltar">
+                                      Voltar
+                                  </a>
+                              </div>
+                          ${formulario.url_call_to_action_na_conclusao ? `` : ''}
+                      </div>
+                  </div>
+              `;
+
+    } // IF ID DO FORMULÁRIO
+
+
   });
   html += '</div></section>';
   conteudoPrincipal.innerHTML = html;
@@ -422,9 +485,8 @@ function iniciarPagePiling() {
 
 function proximaEtapaFormulario() {
   
-  
   let form = jQuery(`#paginaFormulario${posicaoAtualFormulario} form`)[0];
-  if (form.checkValidity()) {
+  if (form.checkValidity() || 9 == 9) {
       let formData = jQuery(form).serialize();
       tudoCerto(formData);
   } else {
@@ -444,29 +506,132 @@ function proximo() {
 });
 }
 
+
+function gerarIdentificadorUnico() {
+   var codigoUnicoForm = Math.floor(100000 + Math.random() * 900000).toString();
+   localStorage.setItem("codigoUnico",codigoUnicoForm);
+}
+
+function obterIdentificadorUnico() {
+  return localStorage.getItem("codigoUnico"); // Retorna um valor padrão caso não exista
+}
+
+function obterIdFormularioAtivo() {
+  return localStorage.getItem("idFormularioAtivo"); // Retorna um valor padrão caso não exista
+}
+
+
 function dispararNotificacoes() {
-  var identificadorUnico = jQuery("#codigoUnicoRegistro").val();
-  var idFormulario = jQuery("#idFormulario").val();
-  var params = "action=notificacao_super_formulario&identificador=" + identificadorUnico + "&id=" + idFormulario;
-  jQuery.ajax({
-      url: superFormHomeUrl + "/wp-admin/admin-ajax.php",
-      type: "POST",
-      dataType: "json",
-      data: params,
-      success: function(data) {
-          try {
-              eval(data.track);
-          } catch(e) {
-              console.error("Erro na execução do script: ", e);
+
+  if (navigator.onLine) {
+
+      var identificadorUnico = obterIdentificadorUnico();
+      var idFormulario       = obterIdFormularioAtivo();
+
+      var params = "action=notificacao_super_formulario&identificador=" + identificadorUnico + "&id=" + idFormulario;
+      jQuery.ajax({
+          url: superFormHomeUrl + "/wp-admin/admin-ajax.php",
+          type: "POST",
+          dataType: "json",
+          data: params,
+          success: function(data) {
+              try {
+                  eval(data.track);
+              } catch(e) {
+                  console.error("Erro na execução do script: ", e);
+              }
           }
-      }
-  });
+      });
+
+  }else{
+
+      console.log("Usuário não está online para envio das informações");
+
+  }
+
+
 }
 
 function tudoCerto(formData) {
-  var identificadorUnico = jQuery("#codigoUnicoRegistro").val();
-  var idFormulario = jQuery("#idFormulario").val();
+
+      if (navigator.onLine) {
+          
+              var identificadorUnico = obterIdentificadorUnico();
+              var idFormulario       = obterIdFormularioAtivo();
+
+              var params = "action=salvar_dados_super_formulario&identificador=" + identificadorUnico + "&id=" + idFormulario + "&" + formData;
+              jQuery.ajax({
+                  url: superFormHomeUrl + "/wp-admin/admin-ajax.php",
+                  type: "POST",
+                  dataType: "json",
+                  data: params,
+                  success: function(data) {
+                      if (data.sucesso == 200) {
+                          console.log("SOLICITAÇÃO ENVIADA COM SUCESSO! INDO PARA O PRÓXIMO PASSO...");
+                      } else {
+                          algoErrado();
+                          return false;
+                      }
+                  }
+              });
+
+      }else{
+
+          console.log("Usuário não está online para envio das informações");
+          armazenarDadosOffline(formData,identificadorUnico, idFormulario);
+
+      }
+
+      proximo();
+
+}
+
+function armazenarDadosOffline(formData,identificadorUnico, idFormulario) {
+  let pendentes = JSON.parse(localStorage.getItem("dadosPendentes")) || [];
+  pendentes.push({ formData, identificadorUnico, idFormulario });
+  localStorage.setItem("dadosPendentes", JSON.stringify(pendentes));
+}
+
+function enviarDadosPendentes() {
+
+      // APRESENTAR NO HTML ATIVAMENTE QUE ESTAMOS SINCRONIZANDO DADOS
+     
+
+      if (navigator.onLine) {
+          let pendentes = JSON.parse(localStorage.getItem("dadosPendentes")) || [];
+          
+          if (pendentes.length > 0) {
+              console.log("Enviando dados pendentes...");
+
+              pendentes.forEach((item, index) => {
+                  // Extrair valores de item
+                  const { formData, identificadorUnico, idFormulario } = item;
+                  enviarDados(formData, identificadorUnico, idFormulario);
+
+                  // Remover o item enviado da lista de pendentes
+                  pendentes.splice(index, 1);
+              });
+
+              // Atualizar o localStorage após enviar todos os dados
+              localStorage.setItem("dadosPendentes", JSON.stringify(pendentes));
+          }
+
+          // Após enviar todos os dados, limpar o localStorage
+          localStorage.removeItem("dadosPendentes");
+          console.log("Todos os dados pendentes foram enviados e removidos do armazenamento.");
+
+      }
+
+      setTimeout(function(){
+        jQuery("#feedbackSincDados").html(` `);
+      }, 20000);
+}
+
+
+
+function enviarDados(formData, identificadorUnico, idFormulario) {
   var params = "action=salvar_dados_super_formulario&identificador=" + identificadorUnico + "&id=" + idFormulario + "&" + formData;
+
   jQuery.ajax({
       url: superFormHomeUrl + "/wp-admin/admin-ajax.php",
       type: "POST",
@@ -475,14 +640,28 @@ function tudoCerto(formData) {
       success: function(data) {
           if (data.sucesso == 200) {
               console.log("SOLICITAÇÃO ENVIADA COM SUCESSO! INDO PARA O PRÓXIMO PASSO...");
+              // Se necessário, você pode remover dados pendentes aqui ou registrar o sucesso em outro lugar
           } else {
               algoErrado();
-              return false;
+              // Armazena dados novamente caso falhe
+              armazenarDadosOffline(formData, identificadorUnico, idFormulario);
           }
+      },
+      error: function() {
+          console.log("Erro na solicitação AJAX, armazenando dados para envio futuro.");
+          // Armazena dados novamente em caso de erro na solicitação
+          armazenarDadosOffline(formData, identificadorUnico, idFormulario);
       }
   });
-  proximo();
 }
+
+
+
+
+
+
+
+
 
 function algoErrado() {
   jQuery(`#paginaFormulario${posicaoAtualFormulario} .feedback-formulario`).html(`

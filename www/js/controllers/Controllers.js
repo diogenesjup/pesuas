@@ -55,7 +55,7 @@ class App {
                 <img src="images/loading.gif" />
                 <p style="text-align:center;font-size:13px">
                     Aguarde...<br>
-                    Estamos carregando os dados do formulário    
+                    Estamos carregando as informações
                 </p>
             </div>
             
