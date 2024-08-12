@@ -120,7 +120,7 @@ function montarFormulario(idFormulario) {
                           </form>
                         
                               <div class="actions">
-                                  <a href="" onclick="location.reload()"; class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Voltar">
+                                  <a href="" onclick="proximaEtapaFormulario(); enviarAoInicio()"; class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Voltar">
                                       Voltar
                                   </a>
                               </div>
@@ -136,6 +136,14 @@ function montarFormulario(idFormulario) {
   html += '</div></section>';
   conteudoPrincipal.innerHTML = html;
   iniciarPagePiling();
+}
+
+function enviarAoInicio(){
+
+  setTimeout(function(){
+    location.reload();
+  }, 2000);
+
 }
 
 function renderizarPergunta(pergunta, paginaIndex, perguntaIndex) {
@@ -561,11 +569,11 @@ function dispararNotificacoes() {
 
 function tudoCerto(formData) {
 
+      var identificadorUnico = obterIdentificadorUnico();
+      var idFormulario       = obterIdFormularioAtivo();
+
       if (navigator.onLine) {
           
-              var identificadorUnico = obterIdentificadorUnico();
-              var idFormulario       = obterIdFormularioAtivo();
-
               var params = "action=salvar_dados_super_formulario&identificador=" + identificadorUnico + "&id=" + idFormulario + "&" + formData;
               jQuery.ajax({
                   url: superFormHomeUrl + "/wp-admin/admin-ajax.php",
