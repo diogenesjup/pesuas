@@ -32,7 +32,7 @@
     <preference name="disable-cursor"             value="false" />         
     <preference name="android-installLocation"    value="auto" />     
     <preference name="StatusBarBackgroundColor"   value="#d67e1d" />
-    <preference name="android-minSdkVersion"      value="33" />
+    <preference name="android-minSdkVersion"      value="31" />
     <preference name="android-targetSdkVersion"   value="33" />
     <preference name="AndroidXEnabled"            value="false" />
 
@@ -41,10 +41,11 @@
     
     
     <!-- Assumindo que você está usando uma versão do Cordova que suporta a configuração de android:exported -->
+    <!--
     <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
         <activity android:exported="true"/>
     </edit-config>
-        
+    -->    
     <!--
     <edit-config  file="app/src/main/AndroidManifest.xml" mode="merge" android:exported="true" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:usesCleartextTraffic="true" />
