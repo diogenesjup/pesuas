@@ -19,7 +19,7 @@
  
     <engine name="android" spec="^8.0.0" />
 
-   <!-- <preference name="android-build-tool"         value="gradle" /> -->
+    <preference name="android-build-tool"         value="gradle" />
     <preference name="orientation"                value="portrait" />     
     <preference name="target-device"              value="handset" />        
     <preference name="fullscreen"                 value="false" />          
@@ -55,15 +55,7 @@
             </intent-filter>
     </edit-config>
     -->
-    <plugin name="cordova-plugin-androidx" />
-    <plugin name="cordova-plugin-androidx-adapter" />
-    <plugin name="cordova-plugin-local-notification" />
-
-    <plugin name="cordova-plugin-android-permissions" />
-    <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-statusbar" />
-    <plugin name="cordova-plugin-ionic-webview" />
-    <plugin name="cordova-plugin-x-socialsharing" />
+  
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
        <param name="ios-package" value="CDVWKWebViewEngine" />
