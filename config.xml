@@ -17,7 +17,9 @@
         Fabrica de Plugins e Diogenes Junior
     </author>
  
-    
+    <engine name="android" spec="^8.0.0" />
+
+    <preference name="android-build-tool"         value="gradle" />
     <preference name="orientation"                value="portrait" />     
     <preference name="target-device"              value="handset" />        
     <preference name="fullscreen"                 value="false" />          
@@ -30,8 +32,7 @@
     <preference name="disable-cursor"             value="false" />         
     <preference name="android-installLocation"    value="auto" />     
     <preference name="StatusBarBackgroundColor"   value="#d67e1d" />
-    <preference name="android-minSdkVersion"      value="31" />
-    <preference name="android-targetSdkVersion"   value="33" />
+    
     <preference name="AndroidXEnabled"            value="false" />
 
 
@@ -64,7 +65,7 @@
     <plugin name="cordova-plugin-x-socialsharing" />
 
 
-
+    
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
        <param name="ios-package" value="CDVWKWebViewEngine" />
