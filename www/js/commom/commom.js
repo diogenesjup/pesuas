@@ -7,6 +7,24 @@ function abrirUrlBrowser(url){
 
 function semInternet(){
 
+  jQuery("#conteudoPrincipal").html(`
+            
+      <div class="carregando-pre">
+          <p style="text-align:center;font-size:13px">
+              Você está sem internet...<br>
+              Mas não se preocupe, vamos salvar todas as informações na memória do seu dispositivo...<br>
+              Aguarde apenas mais alguns instantes.
+          </p>
+      </div>
+    
+  `);
+
+  
+  setTimeout(function(){
+    montarListaDeFormularios();
+  }, 3000);
+
+
 }
 
 
