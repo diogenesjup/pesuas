@@ -32,7 +32,7 @@
                     </activity>
             </application>
 
-            <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="31"/>
+            <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="34"/>
 
     </manifest>
 

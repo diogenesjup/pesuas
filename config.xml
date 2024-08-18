@@ -17,7 +17,7 @@
         Fabrica de Plugins e Diogenes Junior
     </author>
  
-    <engine name="android" spec="^8.0.0" />
+    <engine name="android" spec="^12.0.0" />
 
     <preference name="android-build-tool"         value="gradle" />
     <preference name="orientation"                value="portrait" />     
@@ -33,7 +33,7 @@
     <preference name="android-installLocation"    value="auto" />     
     <preference name="StatusBarBackgroundColor"   value="#00940a" />
     <preference name="android-minSdkVersion"      value="29" />
-    <preference name="android-targetSdkVersion"   value="31" />
+    <preference name="android-targetSdkVersion"   value="34" />
     <preference name="AndroidXEnabled"            value="false" />
 
 
