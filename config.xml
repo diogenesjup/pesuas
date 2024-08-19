@@ -58,10 +58,12 @@
             </intent-filter>
     </edit-config>
     -->
+
+    <plugin name="cordova-android" spec="^12.0.0" />
     <plugin name="cordova-plugin-androidx" />
     <plugin name="cordova-plugin-androidx-adapter" />
     <plugin name="cordova-plugin-local-notification" />
-    <plugin name="cordova-android" spec="^10.1.2" />
+    
 
 
     <plugin name="cordova-plugin-android-permissions" />
