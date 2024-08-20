@@ -40,7 +40,7 @@
     
     <config-file target="app/build.gradle" parent="/*">
         <include src="build-extras.gradle" />
-    </config-file>
+    </config-file> 
     
 
 
@@ -94,7 +94,7 @@
             mdpi    : 48x48 px
             hdpi    : 72x72 px
             xhdpi   : 96x96 px
-            xxhdpi  : 144x144 px
+            xxhdpi  : 144x144 px 
             xxxhdpi : 192x192 px
         -->
         <icon src="www/assets/images/icones/36.png"  density="ldpi" width="36" height="36" />
