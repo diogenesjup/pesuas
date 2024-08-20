@@ -37,11 +37,11 @@
     <preference name="android-compileSdkVersion"  value="33" />
     <preference name="AndroidXEnabled"            value="false" />
 
-    <!--
+    
     <config-file target="app/build.gradle" parent="/*">
         <include src="build-extras.gradle" />
     </config-file>
-    -->
+    
 
 
     <!--<preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/assets/images/icones/1024x1024.png" />-->
