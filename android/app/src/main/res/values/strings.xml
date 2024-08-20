@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Pesuas</string>
-    <string name="title_activity_main">Pesuas</string>
-    <string name="package_name">com.diogenesjunior.pesuas</string>
-    <string name="custom_url_scheme">com.diogenesjunior.pesuas</string>
-</resources>
