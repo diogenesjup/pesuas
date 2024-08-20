@@ -1,0 +1,17 @@
+{
+    "appId": "com.diogenesjunior.pesuas",
+    "appName": "Pesuas",
+    "webDir": "www",
+    "bundledWebRuntime": false,
+    "android": {
+      "minSdkVersion": 29,
+      "targetSdkVersion": 34,
+      "compileSdkVersion": 34
+    },
+    "plugins": {
+      "SplashScreen": {
+        "launchShowDuration": 0
+      }
+    }
+  }
+  
