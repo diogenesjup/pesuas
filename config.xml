@@ -34,7 +34,7 @@
     <preference name="StatusBarBackgroundColor"   value="#00940a" />
     <preference name="android-minSdkVersion"      value="29" />
     <preference name="android-targetSdkVersion"   value="34" />
-    <preference name="android-compileSdkVersion" value="34" />
+    <preference name="android-compileSdkVersion"  value="34" />
     <preference name="AndroidXEnabled"            value="false" />
 
 
@@ -59,20 +59,17 @@
     </edit-config>
     -->
 
-    <plugin name="cordova-android" spec="^12.0.0" />
-    <!--
+    <engine name="android" spec="^10.1.2" />
+    
     <plugin name="cordova-plugin-androidx" />
     <plugin name="cordova-plugin-androidx-adapter" />
     <plugin name="cordova-plugin-local-notification" />
-    -->
-
-
     <plugin name="cordova-plugin-android-permissions" />
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-ionic-webview" />
     <plugin name="cordova-plugin-x-socialsharing" />
-    <plugin name="cordova-plugin-whitelist" version="1.3.4"  />
+    <!--<plugin name="cordova-plugin-whitelist" version="1.3.4"  />-->
 
     
     <preference name="WKWebViewOnly" value="true" />
