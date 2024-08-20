@@ -1,17 +1,18 @@
 {
   "name": "com.diogenesjunior.pesuas",
   "version": "1.0.21",
-  "description": "Prontuário eletronico do Sistema Único de Assistência Social de Benjamin Constant-AM",
+  "description": "Prontuário eletrônico do Sistema Único de Assistência Social de Benjamin Constant-AM",
   "main": "index.html",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diogenesjup/pesuas.git"
+    "url": "https://github.com/diogenesjup/pesuas.git"
   },
   "keywords": [
-    "Pesuas formulários"
+    "Pesuas",
+    "formulários"
   ],
   "author": "Fabrica de Plugins e Diogenes Junior",
   "license": "ISC",
@@ -23,9 +24,7 @@
     "@capacitor/core": "^4.0.0",
     "@capacitor/cli": "^4.0.0",
     "@capacitor/android": "^4.0.0",
-    "@capacitor/ios": "^4.0.0",
-    "@capacitor/status-bar": "^1.0.0", 
-    "cordova-plugin-statusbar": "^3.0.0" 
+    "@capacitor/ios": "^4.0.0"
   },
   "devDependencies": {
     "typescript": "~4.6.3"
