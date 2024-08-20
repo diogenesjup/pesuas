@@ -155,7 +155,7 @@
     
     
 
-    <!--<access origin="*"/>
+    <access origin="*"/>
     <allow-navigation href="*" />
     <allow-intent href="*" /> 
     <allow-intent href="http://*/*" />
@@ -163,6 +163,6 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />-->
+    <allow-intent href="geo:*" />
 
 </widget>
