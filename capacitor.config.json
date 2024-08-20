@@ -1,17 +1,41 @@
 {
-    "appId": "com.diogenesjunior.pesuas",
-    "appName": "Pesuas",
-    "webDir": "www",
-    "bundledWebRuntime": false,
-    "android": {
-      "minSdkVersion": 29,
-      "targetSdkVersion": 34,
-      "compileSdkVersion": 34
-    },
-    "plugins": {
-      "SplashScreen": {
-        "launchShowDuration": 0
-      }
+  "appId": "com.diogenesjunior.pesuas",
+  "appName": "Pesuas",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "minSdkVersion": 29,
+    "targetSdkVersion": 34,
+    "compileSdkVersion": 34
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "android-build-tool": "gradle",
+      "orientation": "portrait",
+      "target-device": "handset",
+      "fullscreen": "false",
+      "webviewbounce": "true",
+      "prerendered-icon": "true",
+      "stay-in-webview": "false",
+      "ios-statusbarstyle": "black-opaque",
+      "detect-data-types": "true",
+      "exit-on-suspend": "false",
+      "disable-cursor": "false",
+      "android-installLocation": "auto",
+      "StatusBarBackgroundColor": "#00940a",
+      "android-minSdkVersion": "29",
+      "android-targetSdkVersion": "33",
+      "android-compileSdkVersion": "33",
+      "AndroidXEnabled": "false",
+      "WKWebViewOnly": "true",
+      "CordovaWebViewEngine": "CDVWKWebViewEngine",
+      "Scheme": "https",
+      "ScrollEnabled": "true"
     }
   }
-  
+}
