@@ -65,6 +65,27 @@ class App {
             app.models.buscarDados();
         } , 3000);
 
+        setTimeout(function(){
+            jQuery("#conteudoPrincipal .carregando-pre").append(`
+            
+               <p>
+                 Problemas de conexão, ou sem internet? Não se preocupe, vamos salvar todas as informações na memória do seu dispositivo
+               </p>
+               <p style="text-align:center;">
+                    <a 
+                        href="" 
+                        onclick="montarListaDeFormularios();" 
+                        class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3"
+                    >
+                        Continuar offline
+                    </a>
+               </p>    
+
+                
+            `);
+           
+        } , 7500);
+
        
 
         

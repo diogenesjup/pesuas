@@ -72,10 +72,7 @@ class Models{
                     
                 }
 
-                window.addEventListener('offline', () => {
-                    console.log('Você está offline.');
-                    semInternet();
-                });
+                
 
     }
 
