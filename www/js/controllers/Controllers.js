@@ -68,10 +68,10 @@ class App {
         setTimeout(function(){
             jQuery("#conteudoPrincipal .carregando-pre").append(`
             
-               <p>
+               <p style="text-align:center;padding:30px;padding-bottom:10px;">
                  Problemas de conexão, ou sem internet? Não se preocupe, vamos salvar todas as informações na memória do seu dispositivo
                </p>
-               <p style="text-align:center;">
+               <p style="text-align:center;padding:30px;padding-bottom:10px;">
                     <a 
                         href="" 
                         onclick="montarListaDeFormularios();" 
