@@ -36,7 +36,7 @@
 
     <plugin name="cordova-plugin-androidx" />
     <plugin name="cordova-plugin-androidx-adapter" />
-    <plugin name="cordova-plugin-local-notification" />
+    <!--<plugin name="cordova-plugin-local-notification" />-->
     <plugin name="cordova-plugin-android-permissions" />
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-statusbar" />
@@ -50,6 +50,11 @@
     <preference name="ScrollEnabled" value="true" />
 
     <platform name="android">
+
+        <preference name="android-minSdkVersion" value="29" />
+        <preference name="android-targetSdkVersion" value="33" />
+        <preference name="android-compileSdkVersion" value="33" />
+
         <icon density="ldpi" height="36" src="www/assets/images/icones/36.png" width="36" />
         <icon density="ldpi" height="40" src="www/assets/images/icones/40.png" width="40" />
         <icon density="mdpi" height="57" src="www/assets/images/icones/57.png" width="57" />
