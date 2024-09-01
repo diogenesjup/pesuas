@@ -1,6 +1,6 @@
 {
   "name": "com.diogenesjunior.pesuas",
-  "version": "1.0.21",
+  "version": "1.0.23",
   "description": "Prontuário eletrônico do Sistema Único de Assistência Social de Benjamin Constant-AM",
   "main": "index.html",
   "scripts": {
@@ -19,9 +19,5 @@
   "bugs": {
     "url": "https://github.com/diogenesjup/pesuas/issues"
   },
-  "homepage": "https://github.com/diogenesjup/pesuas#readme",
-  "dependencies": {
-    "cordova": "^12.0.0",
-    "cordova-android": "^12.0.0"
-  }
+  "homepage": "https://github.com/diogenesjup/pesuas#readme"
 }
