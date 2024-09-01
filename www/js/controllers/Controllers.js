@@ -65,6 +65,8 @@ class App {
             app.models.buscarDados();
         } , 3000);
 
+       
+
         
     }
     
