@@ -8,7 +8,7 @@
         Fabrica de Plugins e Diogenes Junior
     </author>
 
-
+     <engine name="android" spec="^8.0.0" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="handset" />
@@ -22,21 +22,24 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-installLocation" value="auto" />
     <preference name="StatusBarBackgroundColor" value="#00940a" />
+
+
     <preference name="android-minSdkVersion" value="29" />
     <preference name="android-targetSdkVersion" value="33" />
-    <preference name="AndroidXEnabled" value="false" />
-    <config-file parent="/*" target="app/build.gradle">
-        <include src="build-extras.gradle" />
-    </config-file>
+
+    <preference name="AndroidXEnabled" value="true" />
+
     <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
         <activity android:exported="true" />
     </edit-config>
+
+    <plugin name="cordova-plugin-androidx" />
+    <plugin name="cordova-plugin-androidx-adapter" />
     <plugin name="cordova-plugin-local-notification" />
     <plugin name="cordova-plugin-android-permissions" />
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-ionic-webview" />
-    <plugin name="cordova-plugin-x-socialsharing" />
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
         <param name="ios-package" value="CDVWKWebViewEngine" />
@@ -44,6 +47,7 @@
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <preference name="Scheme" value="https" />
     <preference name="ScrollEnabled" value="true" />
+
     <platform name="android">
         <icon density="ldpi" height="36" src="www/assets/images/icones/36.png" width="36" />
         <icon density="ldpi" height="40" src="www/assets/images/icones/40.png" width="40" />
