@@ -58,8 +58,8 @@
 
         <engine name="android" spec="^12.0.0" />
         <preference name="android-minSdkVersion" value="29" />
-        <preference name="android-targetSdkVersion" value="34" />
-        <preference name="android-compileSdkVersion" value="34" />
+        <preference name="android-targetSdkVersion" value="33" />
+        <preference name="android-compileSdkVersion" value="33" />
 
         <icon density="ldpi" height="36" src="www/assets/images/icones/36.png" width="36" />
         <icon density="ldpi" height="40" src="www/assets/images/icones/40.png" width="40" />
