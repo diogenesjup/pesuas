@@ -19,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/diogenesjup/pesuas/issues"
   },
-  "homepage": "https://github.com/diogenesjup/pesuas#readme"
+  "homepage": "https://github.com/diogenesjup/pesuas#readme",
+  "devDependencies": {
+    "cordova-android": "^13.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-ionic-webview": {}
+    }
+  }
 }
