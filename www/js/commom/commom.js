@@ -76,6 +76,7 @@ function montarFormulario(idFormulario) {
 
   let conteudoPrincipal = document.getElementById('conteudoPrincipal');
   let html = '<section class="superform-formulario"><div id="pagepiling">';
+  //let htmlVoltar = '';
   dados.forEach((formulario, index) => {
 
       if(formulario.ID==idFormulario){
@@ -117,6 +118,7 @@ function montarFormulario(idFormulario) {
                   pagina.perguntas.forEach((pergunta, perguntaIndex) => {
                       html += renderizarPergunta(pergunta, index + paginaIndex + 2, perguntaIndex);
                   });
+
                   html += `
                               </form>
                               <div class="feedback-formulario"></div>
@@ -124,7 +126,18 @@ function montarFormulario(idFormulario) {
                                   <a href="" onclick="proximaEtapaFormulario()" class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Próximo">
                                       Próximo
                                   </a>
+                                  
                               </div>
+                              <p style="text-align:center;">
+                                 <a 
+                                    href="" 
+                                    onclick="voltarEtapaFormulario()" 
+                                    style="font-size:14px;text-decoration:underline !important;color:#747474" 
+                                    title="Anterior"
+                                 >
+                                      Anterior
+                                  </a>
+                              </p>
                           </div>
                       </div>
                   `;
@@ -509,6 +522,13 @@ function iniciarPagePiling() {
   });
 }
 
+function voltarEtapaFormulario(){
+
+  posicaoAtualFormulario--;
+  jQuery.fn.pagepiling.moveSectionUp();
+
+}
+
 function proximaEtapaFormulario() {
   
   let form = jQuery(`#paginaFormulario${posicaoAtualFormulario} form`)[0];
@@ -628,7 +648,11 @@ function armazenarDadosOffline(formData,identificadorUnico, idFormulario) {
 function enviarDadosPendentes() {
 
       // APRESENTAR NO HTML ATIVAMENTE QUE ESTAMOS SINCRONIZANDO DADOS
-     
+      jQuery('#feedbackSincDados').html(`
+        
+          <img src="images/loading.gif" /> Estamos sincronizando dados pendentes caso você tenha respondido formulários enquanto estava offline.    
+        
+      `);
 
       if (navigator.onLine) {
           let pendentes = JSON.parse(localStorage.getItem("dadosPendentes")) || [];
