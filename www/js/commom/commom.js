@@ -151,7 +151,7 @@ function montarFormulario(idFormulario) {
                           </form>
                         
                               <div class="actions">
-                                  <a href="" onclick="proximaEtapaFormulario(); enviarAoInicio()"; class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Voltar">
+                                  <a href="" onclick="proximaEtapaFormulario(); enviarDadosPendentes();  enviarAoInicio()"; class="inline-flex px-5 py-3 text-white bg-purple-600 rounded-md mb-3" title="Voltar" id="voltarBtnNew">
                                       Voltar
                                   </a>
                               </div>
@@ -171,9 +171,11 @@ function montarFormulario(idFormulario) {
 
 function enviarAoInicio(){
 
+  jQuery("#voltarBtnNew").html("Carregando...");
+
   setTimeout(function(){
     location.reload();
-  }, 2000);
+  }, 5000);
 
 }
 
@@ -533,13 +535,16 @@ function proximaEtapaFormulario() {
   
   let form = jQuery(`#paginaFormulario${posicaoAtualFormulario} form`)[0];
   if(!form){
+    console.log("Entrei no lugar errado...");
     tudoCerto();
   }else{
-
+    console.log("Entrei no lugar errado 2...");
     if (form.checkValidity()) {
+      console.log("Entrei no lugar errado 3...");
         let formData = jQuery(form).serialize();
         tudoCerto(formData);
     } else {
+      console.log("Entrei no lugar errado 4...");
         algoErrado();
         form.reportValidity();
     }
@@ -647,46 +652,61 @@ function armazenarDadosOffline(formData,identificadorUnico, idFormulario) {
 
 function enviarDadosPendentes() {
 
-      // APRESENTAR NO HTML ATIVAMENTE QUE ESTAMOS SINCRONIZANDO DADOS
-      jQuery('#feedbackSincDados').html(`
-        
-          <img src="images/loading.gif" /> Estamos sincronizando dados pendentes caso você tenha respondido formulários enquanto estava offline.    
-        
-      `);
+  // Exibir mensagem de sincronização
+  jQuery('#feedbackSincDados').html(`
+      <img src="images/loading.gif" /> Estamos sincronizando dados pendentes caso você tenha respondido formulários enquanto estava offline.
+  `);
 
-      if (navigator.onLine) {
-          let pendentes = JSON.parse(localStorage.getItem("dadosPendentes")) || [];
-          
-          if (pendentes.length > 0) {
-              console.log("Enviando dados pendentes...");
+  if (navigator.onLine) {
+      let pendentes = JSON.parse(localStorage.getItem("dadosPendentes")) || [];
 
-              pendentes.forEach((item, index) => {
-                  // Extrair valores de item
-                  const { formData, identificadorUnico, idFormulario } = item;
-                  enviarDados(formData, identificadorUnico, idFormulario);
+      if (pendentes.length > 0) {
+          console.log("Enviando dados pendentes...");
 
-                  // Remover o item enviado da lista de pendentes
-                  pendentes.splice(index, 1);
-              });
-
-              // Atualizar o localStorage após enviar todos os dados
-              localStorage.setItem("dadosPendentes", JSON.stringify(pendentes));
-          }
-
-          // Após enviar todos os dados, limpar o localStorage
-          localStorage.removeItem("dadosPendentes");
-          console.log("Todos os dados pendentes foram enviados e removidos do armazenamento.");
-
+          // Função para enviar os dados um por um
+          enviarDadoPendente(pendentes, 0); // Começa com o primeiro item (índice 0)
       }
+  }
 
-      setTimeout(function(){
-        jQuery("#feedbackSincDados").html(` `);
-      }, 20000);
+  setTimeout(function() {
+      jQuery("#feedbackSincDados").html(` `);
+  }, 20000);
+}
+
+function enviarDadoPendente(pendentes, index) {
+  // Verifica se ainda existem dados pendentes
+  if (index < pendentes.length) {
+      // Extrair os valores do item atual
+      const { formData, identificadorUnico, idFormulario } = pendentes[index];
+
+      console.log("Enviando dados pendentes:", formData);
+
+      // Enviar os dados com a função enviarDados
+      enviarDados(formData, identificadorUnico, idFormulario, function(sucesso) {
+          if (sucesso) {
+              console.log(`Dado pendente de índice ${index} enviado com sucesso.`);
+              // Remove o item do array após sucesso
+              pendentes.splice(index, 1);
+
+              // Atualizar o localStorage com os itens restantes
+              localStorage.setItem("dadosPendentes", JSON.stringify(pendentes));
+
+              // Envia o próximo dado pendente (próximo índice)
+              enviarDadoPendente(pendentes, index);
+          } else {
+              console.log(`Erro ao enviar o dado pendente de índice ${index}, tentando novamente mais tarde.`);
+          }
+      });
+  } else {
+      // Todos os dados foram enviados
+      console.log("Todos os dados pendentes foram enviados.");
+      localStorage.removeItem("dadosPendentes");
+  }
 }
 
 
 
-function enviarDados(formData, identificadorUnico, idFormulario) {
+function enviarDados(formData, identificadorUnico, idFormulario, callback) {
   var params = "action=salvar_dados_super_formulario&identificador=" + identificadorUnico + "&id=" + idFormulario + "&" + formData;
 
   jQuery.ajax({
@@ -695,19 +715,23 @@ function enviarDados(formData, identificadorUnico, idFormulario) {
       dataType: "json",
       data: params,
       success: function(data) {
+          console.log("Retorno dos dados recebidos: ");
+          console.log(data);
           if (data.sucesso == 200) {
               console.log("SOLICITAÇÃO ENVIADA COM SUCESSO! INDO PARA O PRÓXIMO PASSO...");
-              // Se necessário, você pode remover dados pendentes aqui ou registrar o sucesso em outro lugar
+              callback(true); // Chama o callback com sucesso
           } else {
               algoErrado();
-              // Armazena dados novamente caso falhe
+              // Armazena os dados novamente caso falhe
               armazenarDadosOffline(formData, identificadorUnico, idFormulario);
+              callback(false); // Chama o callback com falha
           }
       },
       error: function() {
           console.log("Erro na solicitação AJAX, armazenando dados para envio futuro.");
-          // Armazena dados novamente em caso de erro na solicitação
+          // Armazena os dados novamente em caso de erro na solicitação
           armazenarDadosOffline(formData, identificadorUnico, idFormulario);
+          callback(false); // Chama o callback com falha
       }
   });
 }
