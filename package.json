@@ -1,6 +1,6 @@
 {
   "name": "com.diogenesjunior.pesuas",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Prontuário eletrônico do Sistema Único de Assistência Social de Benjamin Constant-AM",
   "main": "index.html",
   "scripts": {

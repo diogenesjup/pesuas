@@ -700,7 +700,7 @@ function enviarDadoPendente(pendentes, index) {
   } else {
       // Todos os dados foram enviados
       console.log("Todos os dados pendentes foram enviados.");
-      localStorage.removeItem("dadosPendentes");
+      //localStorage.removeItem("dadosPendentes");
   }
 }
 
