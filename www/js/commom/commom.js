@@ -633,6 +633,9 @@ function tudoCerto(formData) {
                   }
               });
 
+              // CRIAR UMA CÓPIA DO REGISTRO
+              armazenarDadosOffline(formData,identificadorUnico, idFormulario);
+
       }else{
 
           console.log("Usuário não está online para envio das informações");
@@ -686,7 +689,7 @@ function enviarDadoPendente(pendentes, index) {
           if (sucesso) {
               console.log(`Dado pendente de índice ${index} enviado com sucesso.`);
               // Remove o item do array após sucesso
-              //pendentes.splice(index, 1);
+              pendentes.splice(index, 1);
 
               // Atualizar o localStorage com os itens restantes
               localStorage.setItem("dadosPendentes", JSON.stringify(pendentes));
