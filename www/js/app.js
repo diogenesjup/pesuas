@@ -2,7 +2,7 @@ var pscLat = 0;
 var pscLon = 0;
 
 var app = new App(1, "PESUAS", 
-					 "1.0.0", 
+					 "1.30.0", 
 					 "HIBRIDO",
 					 "HOMOLOGACAO",
 					 "F9803B518FD8E8E0CD0E7E51F164B7463BDFBC5337DB8603A7B78FFAD76FDFA8",

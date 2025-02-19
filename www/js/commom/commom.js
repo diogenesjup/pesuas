@@ -115,9 +115,30 @@ function montarFormulario(idFormulario) {
                               ${pagina.conteudo_abertura}
                               <form method="post" action="javascript:void(0)">
                   `;
-                  pagina.perguntas.forEach((pergunta, perguntaIndex) => {
-                      html += renderizarPergunta(pergunta, index + paginaIndex + 2, perguntaIndex);
-                  });
+
+                  html += `<div class="grupo-de-perguntas-${paginaIndex}">`;
+
+                      pagina.perguntas.forEach((pergunta, perguntaIndex) => {
+                          html += renderizarPergunta(pergunta, index + paginaIndex + 2, perguntaIndex,pagina);
+                      });
+
+                  html += `</div>`;
+
+                  if(pagina.repetido_entrevistado_perguntas=="Sim"){
+
+                    html += `
+              
+                        <div id="areaReplicacaoDosCampos${paginaIndex}" class="areaReplicacaoDosCampos"></div>
+              
+                        <div class="actions" style="margin-bottom: -27px;">
+                            <a href="" onclick="duplicarCamposDaEtapa(${paginaIndex})" class="inline-flex px-5 py-3 text-white bg-gray-600 rounded-md mb-3" title="Adicionar+">
+                                Adicionar+
+                            </a>                    
+                        </div>
+                    
+                    `;
+              
+                }
 
                   html += `
                               </form>
@@ -179,8 +200,14 @@ function enviarAoInicio(){
 
 }
 
-function renderizarPergunta(pergunta, paginaIndex, perguntaIndex) {
+function renderizarPergunta(pergunta, paginaIndex, perguntaIndex, pagina) {
+
+
   let html = '';
+  localStorage.setItem("perguntaBackup",JSON.stringify(pergunta));
+
+  //html += `<div class="grupo-de-perguntas-${paginaIndex}>`;
+
   switch (pergunta.tipo_pergunta_questao) {
       case 'Texto Simples':
           html += `
@@ -482,7 +509,36 @@ function renderizarPergunta(pergunta, paginaIndex, perguntaIndex) {
       default:
           break;
   }
+
+  
+
+
+  //html += `</div>`; // FECHAMENTO DA DIV DO GRUPO DE PERGUNTAS
+
+
   return html;
+}
+
+function duplicarCamposDaEtapa(paginaIndex){
+
+          var perguntas = jQuery(`.grupo-de-perguntas-${paginaIndex}`).html();
+
+          jQuery(`#areaReplicacaoDosCampos${paginaIndex}`).append(perguntas);
+
+          jQuery(`#areaReplicacaoDosCampos${paginaIndex}`).css("padding","12px");
+          jQuery(`#areaReplicacaoDosCampos${paginaIndex}`).css("padding-bottom","50px");
+
+          // Seleciona a área das perguntas e modifica os inputs diretamente
+          jQuery(`#areaReplicacaoDosCampos${paginaIndex} input[name]`).each(function() {
+
+            var name = jQuery(this).attr("name"); // Obtém o atributo name
+            
+            if (!name.endsWith("[]")) { // Evita duplicação caso [] já tenha sido adicionado
+                jQuery(this).attr("name", name + "[]");
+            }
+
+          });
+
 }
 
 function iniciarPagePiling() {

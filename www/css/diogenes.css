@@ -491,6 +491,8 @@ img.novo-icone-principal{
 .superform-formulario .actions a:hover{
 	text-decoration: none !important;
 	font-weight: bold !important;
+    display: block;
+    margin-bottom: 40px !important;
 }
 
 .superform-formulario .diogenes-form-group{
@@ -572,4 +574,14 @@ img.novo-icone-principal{
   width: 32px;
   height: auto;
   margin-bottom: 20px;
+}
+
+.areaReplicacaoDosCampos{
+    position: relative;
+    display: block;
+    background: #f2f2f2;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-top: 25px;
+    border-radius: 5px;
 }
