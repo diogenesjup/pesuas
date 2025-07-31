@@ -123,6 +123,7 @@ function montarFormulario(idFormulario) {
                       });
 
                   html += `</div>`;
+                  var htmlRepetirRespostas = '';
 
                   if(pagina.repetido_entrevistado_perguntas=="Sim"){
 
@@ -130,13 +131,20 @@ function montarFormulario(idFormulario) {
               
                         <div id="areaReplicacaoDosCampos${paginaIndex}" class="areaReplicacaoDosCampos"></div>
               
-                        <div class="actions" style="margin-bottom: -27px;">
-                            <a href="" onclick="duplicarCamposDaEtapa(${paginaIndex})" class="inline-flex px-5 py-3 text-white bg-gray-600 rounded-md mb-3" title="Adicionar+">
+                        <div class="actions2" style="margin-bottom: 40px;">
+                            <a href="" 
+                               onclick="duplicarCamposDaEtapa(${paginaIndex})" 
+                               class="inline-flex px-5 py-3 text-white bg-gray-600 rounded-md mb-3" 
+                               title="Adicionar+"
+                               style="text-align:center;"
+                            >
                                 Adicionar+
                             </a>                    
                         </div>
                     
                     `;
+
+                
               
                 }
 
@@ -153,7 +161,7 @@ function montarFormulario(idFormulario) {
                                  <a 
                                     href="" 
                                     onclick="voltarEtapaFormulario()" 
-                                    style="font-size:14px;text-decoration:underline !important;color:#747474" 
+                                    style="font-size:14px;text-decoration:underline !important;color:#747474;margin-top: 50px;position: relative;display: block;" 
                                     title="Anterior"
                                  >
                                       Anterior
@@ -529,6 +537,7 @@ function duplicarCamposDaEtapa(paginaIndex){
           jQuery(`#areaReplicacaoDosCampos${paginaIndex}`).css("padding-bottom","50px");
 
           // Seleciona a área das perguntas e modifica os inputs diretamente
+          /*
           jQuery(`#areaReplicacaoDosCampos${paginaIndex} input[name]`).each(function() {
 
             var name = jQuery(this).attr("name"); // Obtém o atributo name
@@ -537,6 +546,23 @@ function duplicarCamposDaEtapa(paginaIndex){
                 jQuery(this).attr("name", name + "[]");
             }
 
+          });
+          */
+         
+          // CORREÇÃO: Modificar também os campos originais para incluir []
+          jQuery(`.grupo-de-perguntas-${paginaIndex} input[name]`).each(function() {
+              var name = jQuery(this).attr("name");
+              if (!name.endsWith("[]")) {
+                  jQuery(this).attr("name", name + "[]");
+              }
+          });
+
+          // Seleciona a área das perguntas replicadas e modifica os inputs
+          jQuery(`#areaReplicacaoDosCampos${paginaIndex} input[name]`).each(function() {
+              var name = jQuery(this).attr("name");
+              if (!name.endsWith("[]")) {
+                  jQuery(this).attr("name", name + "[]");
+              }
           });
 
 }
